@@ -2,7 +2,7 @@
 
 class Paginas{
 	
-	public function enlacesPaginasModel($enlaces){
+	public static function enlacesPaginasModel($enlaces){
 
 
 		if($enlaces == "ingresar" || $enlaces == "usuarios" || $enlaces == "editar" || $enlaces == "salir"){
