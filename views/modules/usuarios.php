@@ -18,9 +18,9 @@
 		<tbody>
 			
 			<tr>
-				<td>juan</td>
+				<td>jose</td>
 				<td>1234</td>
-				<td>juan@hotmail.com</td>
+				<td>jose@gmail.com</td>
 				<td><button>Editar</button></td>
 				<td><button>Borrar</button></td>
 			</tr>
