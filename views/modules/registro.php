@@ -2,11 +2,11 @@
 
 <form method="POST">
 	
-	<input type="text" placeholder="Usuario" name="usuario" required>
+	<input type="text" placeholder="Usuario" name="usuarioRegistro" required>
 
-	<input type="password" placeholder="Contraseña" name="password" required>
+	<input type="password" placeholder="Contraseña" name="passwordRegistro" required>
 
-	<input type="email" placeholder="Email" name="email" required>
+	<input type="email" placeholder="Email" name="emailRegistro" required>
 
 	<input type="submit" value="Enviar">
 

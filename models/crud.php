@@ -24,6 +24,26 @@ require_once "conexion.php";
             }
 
         }
+
+        #INGRESO DE USUARIOS
+        public static function ingresoUsuarioModel($datosModel, $tabla){
+
+            $stmt = Conexion::conectar()->prepare("SELECT usuario, password FROM $tabla WHERE usuario = :usuario");
+
+            $stmt->bindParam(":usuario", $datosModel["usuario"], PDO::PARAM_STR);
+            $stmt->execute();
+            return $stmt->fetch();
+        }
+
+        #VISTA DE USUARIOS
+        public static function vistaUsuariosModel($tabla){
+
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+
+            $stmt->execute();
+            return $stmt->fetchAll();
+        }
+
     }
 
 ?>

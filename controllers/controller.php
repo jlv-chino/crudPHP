@@ -32,9 +32,9 @@ class MvcController{
 	#REGISTRO DE USUARIOS
 	public function registroUsuarioController(){
 
-		if(isset($_POST["usuario"])){
+		if(isset($_POST["usuarioRegistro"])){
 
-			$datosController = array("usuario"=>$_POST["usuario"], "password"=>$_POST["password"], "email"=>$_POST["email"]);
+			$datosController = array("usuario"=>$_POST["usuarioRegistro"], "password"=>$_POST["passwordRegistro"], "email"=>$_POST["emailRegistro"]);
 		
 			$respuesta = Datos::registroUsuarioModel($datosController, "usuarios");
 
@@ -50,6 +50,46 @@ class MvcController{
 
 		}
 		
+		
+	}
+
+	#INGRESO DE USUARIOS
+	public static function ingresoUsuarioController(){
+
+		if(isset($_POST["usuarioIngreso"])){
+
+			$datosController = array("usuario"=>$_POST["usuarioIngreso"], "password"=>$_POST["passwordIngreso"]);
+		
+			$respuesta = Datos::ingresoUsuarioModel($datosController, "usuarios");
+
+			if($respuesta["usuario"] == $_POST["usuarioIngreso"] && $respuesta["password" == $_POST["passwordIngreso"]]){
+
+				header("location:index.php?action=usuarios");
+
+			}else{
+
+				header("location:index.php?action=fallo");
+
+			}
+
+		}
+
+	}
+
+	#VISTA DE USUARIOS
+	public static function vistaUsuariosController(){
+
+		$respuesta = Datos::vistaUsuariosModel("usuarios");
+
+		foreach($respuesta as $row => $item){
+			echo '<tr>
+					<td>'.$item["usuario"].'</td>
+					<td>'.$item["password"].'</td>
+					<td>'.$item["email"].'</td>
+					<td><button>Editar</button></td>
+					<td><button>Borrar</button></td>
+				 </tr>';
+		}
 		
 	}
 

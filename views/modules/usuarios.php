@@ -16,17 +16,14 @@
 		</thead>
 
 		<tbody>
-			
-			<tr>
-				<td>jose</td>
-				<td>1234</td>
-				<td>jose@gmail.com</td>
-				<td><button>Editar</button></td>
-				<td><button>Borrar</button></td>
-			</tr>
+		<?php
 
+			$ingreso = new MvcController();
+			$ingreso->vistaUsuariosController();
+
+		?>
 		</tbody>
 
-
-
 	</table>
+
+	
