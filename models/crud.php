@@ -23,6 +23,9 @@ require_once "conexion.php";
 
             }
 
+            $stmt->closeCursor();
+            $stmt = null;
+
         }
 
         #INGRESO DE USUARIOS
@@ -33,6 +36,9 @@ require_once "conexion.php";
             $stmt->bindParam(":usuario", $datosModel["usuario"], PDO::PARAM_STR);
             $stmt->execute();
             return $stmt->fetch();
+
+            $stmt->closeCursor();
+            $stmt = null;
         }
 
         #VISTA DE USUARIOS
@@ -42,6 +48,9 @@ require_once "conexion.php";
 
             $stmt->execute();
             return $stmt->fetchAll();
+
+            $stmt->closeCursor();
+            $stmt = null;
         }
 
     }
