@@ -53,6 +53,44 @@ require_once "conexion.php";
             $stmt = null;
         }
 
+        #EDITAR USUARIO
+        public static function editarUsuarioModel($datosModel, $tabla){
+
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE id = :id");
+            $stmt->bindParam(":id", $datosModel, PDO::PARAM_INT);
+
+            $stmt->execute();
+            return $stmt->fetch();
+
+            $stmt->closeCursor();
+            $stmt = null;
+        }
+
+        #ACTUALIZAR USUARIO
+        public static function actualizarUsuarioModel($datosModel, $tabla){
+
+            $stmt = Conexion::conectar()->prepare("UPDATE $tabla SET usuario = :usuario, password = :password, email = :email WHERE id = :id");
+            
+            $stmt->bindParam(":usuario", $datosModel["usuario"], PDO::PARAM_STR);
+            $stmt->bindParam(":password", $datosModel["password"], PDO::PARAM_STR);
+            $stmt->bindParam(":email", $datosModel["email"], PDO::PARAM_STR);
+            $stmt->bindParam(":id", $datosModel["id"], PDO::PARAM_INT);
+
+            if($stmt->execute()){
+
+                return "success";
+
+            }else{
+
+                return "error";
+
+            }
+
+            $stmt->closeCursor();
+            $stmt = null;
+            
+        }
+
     }
 
 ?>
