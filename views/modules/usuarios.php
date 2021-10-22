@@ -29,8 +29,9 @@
 		<tbody>
 		<?php
 
-			$ingreso = new MvcController();
-			$ingreso->vistaUsuariosController();
+			$vistaUsuario = new MvcController();
+			$vistaUsuario->vistaUsuariosController();
+			$vistaUsuario->borrarUsuarioController();
 
 		?>
 		</tbody>

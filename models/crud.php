@@ -91,6 +91,28 @@ require_once "conexion.php";
             
         }
 
+        #BORRAR USUARIO
+        public static function borrarUsuarioModel($datosModel, $tabla){
+
+            $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE id = :id");  
+            
+            $stmt->bindParam(":id", $datosModel, PDO::PARAM_INT);
+
+            if($stmt->execute()){
+
+                return "success";
+
+            }else{
+
+                return "error";
+
+            }
+
+            $stmt->closeCursor();
+            $stmt = null;
+
+        }
+
     }
 
 ?>
