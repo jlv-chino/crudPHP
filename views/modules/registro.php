@@ -1,6 +1,6 @@
 <h1>REGISTRO DE USUARIO</h1>
 
-<form method="POST">
+<form method="POST" onsubmit="return validarRegistro()">
 	
 	<input type="text" placeholder="Usuario" name="usuarioRegistro" required>
 
