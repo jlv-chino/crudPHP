@@ -76,3 +76,7 @@ table thead tr th{
 table tbody tr td{
     padding:10px;
 }
+
+p{
+    text-align: center;
+}
