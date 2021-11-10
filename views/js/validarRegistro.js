@@ -6,7 +6,7 @@ function validarRegistro(){
     let email = document.querySelector("#emailRegistro").value;
     let terminos = document.querySelector("#terminos").checked;
 
-    let expresionRegular = /^[a-zA-Z0-9]*$/; 
+    let expresionRegular = /^[a-zA-Z0-9]+$/; 
     let expresionEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
   
     //VALIDAR USUARIO
