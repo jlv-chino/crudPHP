@@ -116,9 +116,9 @@ class MvcController{
 		echo '
 		<input type="hidden" value="'.$respuesta["id"].'" name="idEditar">
 
-		<input type="text" value="'.$respuesta["usuario"].'" name="usuarioEditar" required>
+		<input type="text" value="'.$respuesta["usuario"].'" name="usuarioEditar" maxlength="6" required>
 
-		<input type="text" value="'.$respuesta["password"].'" name="passwordEditar" required>
+		<input type="text" value="'.$respuesta["password"].'" name="passwordEditar" minlength="6" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" required>
 	
 		<input type="email" value="'.$respuesta["email"].'" name="emailEditar" required>
 	
