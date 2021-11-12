@@ -38,7 +38,9 @@ class MvcController{
 			   preg_match('/^[a-zA-Z0-9]+$/', $_POST["passwordRegistro"]) && 
 			   preg_match('/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/', $_POST["emailRegistro"])){
 
-				$datosController = array("usuario"=>$_POST["usuarioRegistro"], "password"=>$_POST["passwordRegistro"], "email"=>$_POST["emailRegistro"]);
+				$encriptar = crypt($_POST["passwordRegistro"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+
+				$datosController = array("usuario"=>$_POST["usuarioRegistro"], "password"=>$encriptar, "email"=>$_POST["emailRegistro"]);
 			
 				$respuesta = Datos::registroUsuarioModel($datosController, "usuarios");
 	
@@ -66,11 +68,13 @@ class MvcController{
 			if(preg_match('/^[a-zA-Z0-9]+$/', $_POST["usuarioIngreso"]) && 
 			   preg_match('/^[a-zA-Z0-9]+$/', $_POST["passwordIngreso"])){
 
-				$datosController = array("usuario"=>$_POST["usuarioIngreso"], "password"=>$_POST["passwordIngreso"]);
+				$encriptar = crypt($_POST["passwordIngreso"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+
+				$datosController = array("usuario"=>$_POST["usuarioIngreso"], "password"=>$encriptar);
 		
 				$respuesta = Datos::ingresoUsuarioModel($datosController, "usuarios");
 	
-				if($respuesta["usuario"] == $_POST["usuarioIngreso"] && $respuesta["password" == $_POST["passwordIngreso"]]){
+				if($respuesta["usuario"] == $_POST["usuarioIngreso"] && $respuesta["password"] == $encriptar){
 	
 					session_start();
 					$_SESSION["validar"] = true;
@@ -116,9 +120,9 @@ class MvcController{
 		echo '
 		<input type="hidden" value="'.$respuesta["id"].'" name="idEditar">
 
-		<input type="text" value="'.$respuesta["usuario"].'" name="usuarioEditar" maxlength="6" required>
+		<input type="text" value="'.$respuesta["usuario"].'" name="usuarioEditar" required>
 
-		<input type="text" value="'.$respuesta["password"].'" name="passwordEditar" minlength="6" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" required>
+		<input type="text" value="'.$respuesta["password"].'" name="passwordEditar" required>
 	
 		<input type="email" value="'.$respuesta["email"].'" name="emailEditar" required>
 	
@@ -135,7 +139,9 @@ class MvcController{
 			   preg_match('/^[a-zA-Z0-9]+$/', $_POST["passwordEditar"]) && 
 			   preg_match('/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/', $_POST["emailEditar"])){
 
-				$datosController = array("id"=>$_POST["idEditar"], "usuario"=>$_POST["usuarioEditar"], "password"=>$_POST["passwordEditar"], "email"=>$_POST["emailEditar"]);
+				$encriptar = crypt($_POST["passwordEditar"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+
+				$datosController = array("id"=>$_POST["idEditar"], "usuario"=>$_POST["usuarioEditar"], "password"=>$encriptar, "email"=>$_POST["emailEditar"]);
 
 				$respuesta = Datos::actualizarUsuarioModel($datosController, "usuarios");
 	
