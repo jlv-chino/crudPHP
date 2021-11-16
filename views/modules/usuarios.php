@@ -27,13 +27,13 @@
 		</thead>
 
 		<tbody>
-		<?php
+			<?php
 
 			$vistaUsuario = new MvcController();
 			$vistaUsuario->vistaUsuariosController();
 			$vistaUsuario->borrarUsuarioController();
 
-		?>
+			?>
 		</tbody>
 
 	</table>

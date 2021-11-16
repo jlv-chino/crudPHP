@@ -22,6 +22,12 @@
 				echo "Error al ingresar !!!";
 	
 			}
+
+			if($_GET['action'] == "fallo3intentos"){
+	
+				echo "Ha superado el límite de fallas para ingresar !!!";
+	
+			}
 	
 		}
 
