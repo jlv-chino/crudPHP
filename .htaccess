@@ -1,0 +1,10 @@
+# bloquear vista de listado de contenido de un directorio
+
+Options All -Indexes
+
+
+#Urls amigables
+
+RewriteEngine On 
+
+RewriteRule ^(\w+)$ index.php?action=$1

@@ -46,7 +46,7 @@ class MvcController{
 	
 				if($respuesta == "success"){
 	
-					header("location:index.php?action=ok");
+					header("location:ok");
 	
 				}else{
 	
@@ -91,7 +91,7 @@ class MvcController{
 	
 						$respuestaActualizarIntentos = Datos::intentosUsuarioModel($datosController, "usuarios");
 		
-						header("location:index.php?action=usuarios");
+						header("location:usuarios");
 		
 					}else{
 
@@ -101,7 +101,7 @@ class MvcController{
 
 						$respuestaActualizarIntentos = Datos::intentosUsuarioModel($datosController, "usuarios");
 		
-						header("location:index.php?action=fallo");
+						header("location:fallo");
 		
 					}
 
@@ -113,7 +113,7 @@ class MvcController{
 
 					$respuestaActualizarIntentos = Datos::intentosUsuarioModel($datosController, "usuarios");
 
-					header("location:index.php?action=fallo3intentos");
+					header("location:fallo3intentos");
 				}
 	
 			}
@@ -176,7 +176,7 @@ class MvcController{
 	
 				if($respuesta == "success"){
 	
-					header("location:index.php?action=cambio");
+					header("location:cambio");
 	
 				}else{
 	
@@ -201,7 +201,7 @@ class MvcController{
 			
 			if($respuesta == "success"){
 
-				header("location:index.php?action=usuarios");
+				header("location:usuarios");
 
 			}
 
@@ -210,5 +210,3 @@ class MvcController{
 	}
 
 }
-
-?>
