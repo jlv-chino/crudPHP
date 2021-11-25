@@ -1,3 +1,29 @@
+//VALIDAR USUARIO EXISTENTE CON AJAX
+$("#usuarioRegistro").change(function(){
+
+    let usuario = $("#usuarioRegistro").val();
+    
+    let datos = new FormData();
+    datos.append("validarUsuario", usuario);
+
+    $.ajax({
+        url: "views/modules/ajax.php",
+        method: "POST",
+        data: datos,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(respuesta){
+            if(respuesta == 0){
+
+                alert("Nombre de usuario ya existente en la DB!!!");
+
+            }
+        }
+    });
+
+});
+
 //VALIDAR REGISTRO
 function validarRegistro(){
 

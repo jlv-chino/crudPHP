@@ -209,4 +209,19 @@ class MvcController{
 
 	}
 
+	#VALIDAR USUARIO EXISTENTE
+	public static function validarUsuarioController($validarUsuario){
+
+		$datosController = $validarUsuario;
+
+		$respuesta = Datos::validarUsuarioModel($datosController, "usuarios");
+
+		if(strlen($respuesta["usuario"]) > 0){
+
+			echo 0;
+
+		}
+
+	}
+
 }

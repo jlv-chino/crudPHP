@@ -6,6 +6,8 @@
 
 	<link rel="stylesheet" type="text/css" href="css/estilos.css">
 
+	<script src="views/js/jquery-3.6.0.min.js"></script>
+
 </head>
 
 <body>
