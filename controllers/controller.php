@@ -218,7 +218,22 @@ class MvcController{
 
 		if(strlen($respuesta["usuario"]) > 0){
 
-			echo 0;
+			echo 'encontrado';
+
+		}
+
+	}
+
+	#VALIDAR EMAIL EXISTENTE
+	public static function validarEmailController($validarEmail){
+
+		$datosController = $validarEmail;
+
+		$respuesta = Datos::validarEmailModel($datosController, "usuarios");
+
+		if(strlen($respuesta["email"]) > 0){
+
+			echo 'encontrado';
 
 		}
 

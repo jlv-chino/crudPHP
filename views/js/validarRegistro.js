@@ -14,9 +14,35 @@ $("#usuarioRegistro").change(function(){
         contentType: false,
         processData: false,
         success: function(respuesta){
-            if(respuesta == 0){
+            if(respuesta == 'encontrado'){
 
                 alert("Nombre de usuario ya existente en la DB!!!");
+
+            }
+        }
+    });
+
+});
+
+//VALIDAR EMAIL EXISTENTE CON AJAX
+$("#emailRegistro").change(function(){
+
+    let email = $("#emailRegistro").val();
+    
+    let datos = new FormData();
+    datos.append("validarEmail", email);
+
+    $.ajax({
+        url: "views/modules/ajax.php",
+        method: "POST",
+        data: datos,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(respuesta){
+            if(respuesta == 'encontrado'){
+
+                alert("Email ya existente en la DB!!!");
 
             }
         }
