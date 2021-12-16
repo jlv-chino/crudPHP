@@ -1,4 +1,6 @@
 //VALIDAR USUARIO EXISTENTE CON AJAX
+let usuarioExistente = false;
+
 $("#usuarioRegistro").change(function(){
 
     let usuario = $("#usuarioRegistro").val();
@@ -18,6 +20,8 @@ $("#usuarioRegistro").change(function(){
 
                 alert("Nombre de usuario ya existente en la DB!!!");
 
+                usuarioExistente = true;
+
             }
         }
     });
@@ -25,6 +29,8 @@ $("#usuarioRegistro").change(function(){
 });
 
 //VALIDAR EMAIL EXISTENTE CON AJAX
+let emailExistente = false;
+
 $("#emailRegistro").change(function(){
 
     let email = $("#emailRegistro").val();
@@ -44,6 +50,8 @@ $("#emailRegistro").change(function(){
 
                 alert("Email ya existente en la DB!!!");
 
+                emailExistente = true;
+
             }
         }
     });
@@ -59,8 +67,7 @@ function validarRegistro(){
     let terminos = document.querySelector("#terminos").checked;
 
     let expresionRegular = /^[a-zA-Z0-9]+$/; 
-    let expresionEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
-  
+    
     //VALIDAR USUARIO
     if(usuario != "" && usuario.length > 6){
 
@@ -75,6 +82,14 @@ function validarRegistro(){
         alert("El campo nombre contiene caracteres especiales");
         
         return false;      
+
+    }
+
+    if(usuarioExistente){
+
+        alert("Nombre de usuario ya existente en la DB!!!");
+
+        return false;
 
     }
 
@@ -96,13 +111,28 @@ function validarRegistro(){
     }
 
     //VALIDAR EMAIL
-    if(!expresionEmail.test(email)){
+    if(email != ""){
 
-        alert("Escriba su email correctamente");
-        
-        return false;      
+        let expresionEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
+
+        if(!expresionEmail.test(email)){
+
+            alert("Escriba su email correctamente");
+            
+            return false;      
+    
+        }
+    
+        if(emailExistente){
+    
+            alert("Email ya existente en la DB!!!");
+    
+            return false;
+    
+        }
 
     }
+    
 
     //VALIDAR TERMINOS
     if(!terminos){

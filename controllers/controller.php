@@ -151,7 +151,7 @@ class MvcController{
 
 		<input type="text" value="'.$respuesta["usuario"].'" name="usuarioEditar" required>
 
-		<input type="text" value="'.$respuesta["password"].'" name="passwordEditar" required>
+		<input type="text" value="" placeholder="Ingrese la contraseña actual o una nueva" minlength="6" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="passwordEditar" required>
 	
 		<input type="email" value="'.$respuesta["email"].'" name="emailEditar" required>
 	

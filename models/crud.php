@@ -78,7 +78,7 @@ require_once "conexion.php";
         #EDITAR USUARIO
         public static function editarUsuarioModel($datosModel, $tabla){
 
-            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE id = :id");
+            $stmt = Conexion::conectar()->prepare("SELECT id, usuario, password, email FROM $tabla WHERE id = :id");
             $stmt->bindParam(":id", $datosModel, PDO::PARAM_INT);
 
             $stmt->execute();

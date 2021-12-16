@@ -6,8 +6,7 @@ require_once "../../models/crud.php";
 class ajax{
 
     public $validarUsuario;
-    public $validarEmail;
-
+    
     public function validarUsuarioAjax(){
 
         $datos = $this->validarUsuario;
@@ -17,6 +16,9 @@ class ajax{
         echo $respuesta;
 
     }
+    
+
+    public $validarEmail;
 
     public function validarEmailAjax(){
 

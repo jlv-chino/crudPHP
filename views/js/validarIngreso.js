@@ -5,7 +5,6 @@ function validarIngreso(){
     let password = document.querySelector("#passwordIngreso").value;
 
     let expresionRegular = /^[a-zA-Z0-9]+$/; 
-    let expresionEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
   
     //VALIDAR USUARIO
     if(usuario != "" && usuario.length > 6){
